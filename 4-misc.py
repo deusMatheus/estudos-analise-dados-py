@@ -31,3 +31,32 @@ p.pprint(m.db.laureates.count_documents({
         }
     }
 }))
+
+# Utilizando Regex
+# Definição de $regex segundo a documentação do mongodb:
+# Provides regular expression capabilities for pattern matching strings in queries.
+# Importante consideraar que $regex é case sensitive. Para desconsiderar a caixa alta, utiliza-se $options: 1
+p.pprint(m.db.laureates.distinct(
+    'bornCountry',
+    {'bornCountry': {'$regex': 'Poland', '$options': 'i'}}
+))
+
+# Utilizando classe Regex
+from bson.regex import Regex
+
+p.pprint(m.db.laureates.distinct(
+    'bornCountry',
+    {'bornCountry': Regex('poland','i')}
+))
+
+# Começa com ^string
+p.pprint(m.db.laureates.distinct(
+    'bornCountry',
+    {'bornCountry': Regex('^fra','i')}
+))
+
+# Termina com string\$
+p.pprint(m.db.laureates.distinct(
+    'bornCountry',
+    {'bornCountry': Regex('ia\)$','i')}
+))
