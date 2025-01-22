@@ -42,3 +42,5 @@ resultado_4 = pd.read_sql_query(consulta_4, engine)
 pp.pprint('Média de preços por item:')
 pp.pprint(resultado_4)
 lb.lineBreaker()
+
+df.csv
