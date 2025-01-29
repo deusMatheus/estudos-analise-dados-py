@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Importando os Dados
-data = pd.read_csv("projeto-dashboard/data/Pedidos.csv")
+data = pd.read_csv("projeto-dashboard/data copy/Pedidos.csv")
 df = pd.DataFrame(data)
 
 def main():
